@@ -53,10 +53,10 @@ along with DesignSPHysics.  If not, see <http://www.gnu.org/licenses/>.
 # ------ CONSTANTS DEFINITION ------
 FREECAD_MIN_VERSION = "016"
 APP_NAME = "DesignSPHysics"
-DEBUGGING = False
+DEBUGGING = True
 DIVIDER = 1000
 PICKLE_PROTOCOL = 1  # Binary mode
-VERSION = "0.4.1711-02"
+VERSION = "0.4.1711-09-workshop"
 WIDTH_2D = 0.001
 MAX_PARTICLE_WARNING = 2000000
 
@@ -736,7 +736,8 @@ def dump_to_xml(data, save_name):
                     __objs__ = list()
                     __objs__.append(o)
                     Mesh.export(__objs__, save_name + "/" + o.Name + ".stl")
-                    f.write('\t\t\t\t\t<drawfilestl file="' + o.Name + ".stl" + '" objname="{}">\n'.format(o.Label))
+                    f.write('\t\t\t\t\t<drawfilestl file="' + save_name + "/" +
+                            o.Name + ".stl" + '" objname="{}">\n'.format(o.Label))
                     f.write('\t\t\t\t\t\t<drawscale x="0.001" y="0.001" z="0.001" />\n')
                     f.write('\t\t\t\t\t</drawfilestl>\n')
                     del __objs__
